@@ -10,10 +10,17 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 public:
     explicit MyGLWidget(QWidget *parent = nullptr);
 
+
+
 protected:
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
+
+    void timerEvent(QTimerEvent* e)override;
+
+private:
+    float angle = 0.f;
 };
 
 #endif
