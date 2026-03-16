@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\YuminMartinezPerez\Documents\GitHub\InformaticaGrafica\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(20,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  MyFirstOpenGL.vcxproj -> C:\Users\YuminMartinezPerez\Documents\GitHub\InformaticaGrafica\MyFirstOpenGL\x64\Debug\MyFirstOpenGL.exe
