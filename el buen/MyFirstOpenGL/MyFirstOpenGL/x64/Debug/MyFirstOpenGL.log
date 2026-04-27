@@ -2,5 +2,6 @@
   Source.cpp
 C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(41,90): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
 C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(41,71): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(396,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(180,16): warning C4129: '_': unrecognized character escape sequence
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(513,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
   MyFirstOpenGL.vcxproj -> C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\x64\Debug\MyFirstOpenGLYumin+.exe

@@ -42,6 +42,8 @@ void Resize_Window(GLFWwindow* window, int iFrameBufferWidth, int iFrameBufferHe
 	
 }
 
+
+/*
 //fUNCION que leera el .obj y devolvera el modelo para ser renderizado 
 Model LoadOBJModel(const std::string& filePath)
 {
@@ -144,8 +146,7 @@ Model LoadOBJModel(const std::string& filePath)
 				case 1:
 					textureCoordinates.push_back(tmpVertexs[(vertexData - 1) * 2]);
 					textureCoordinates.push_back(tmpVertexs[(vertexData - 1) * 2] + 1);
-					ss.ignore(1, '/');
-					counter++;
+					
 					break;
 				case 2:
 
@@ -154,7 +155,6 @@ Model LoadOBJModel(const std::string& filePath)
 					vertexNormal.push_back(tmpVertexs[(vertexData - 1) * 3] + 1);
 					vertexNormal.push_back(tmpVertexs[(vertexData - 1) * 3] + 2);
 					
-					counter = 0;
 					break;
 				}
 			}
@@ -166,6 +166,123 @@ Model LoadOBJModel(const std::string& filePath)
 	}
 	return Model(vertexs, textureCoordinates, vertexNormal);
 }
+
+*/
+
+
+
+//Funcion que leera un .obj y devolvera el modelo para poder ser renderizado
+Model LoadOBJModel(const std::string& filePath) {
+
+	//Verifico archivo y si no lo encuentro exploto muy fuerte (jodete 67)
+	std::ifstream file(filePath);
+	if (!file.is_open()) {
+		std::cerr << "Puta vida tete, ha petado porque no puede abrir el archivo \_O.,.,.O_/: " << filePath << std::endl;
+		std::exit(EXIT_FAILURE);
+	}
+
+	//Variables para lectura del fichero
+	std::string line;
+	std::stringstream ss;
+	std::string prefix;
+	glm::vec3 tmpVec3;
+	glm::vec2 tmpVec2;
+
+	//Variables elemento modelo
+	std::vector<float> vertexs;
+	std::vector<float> vertexNormal;
+	std::vector<float> textureCoordinates;
+
+	//Variables temporales para hacer el sort de las faces
+	std::vector<float> tmpVertexs;
+	std::vector<float> tmpNormals;
+	std::vector<float> tmpTextureCoordinates;
+
+	//Recorremos el archivo linea por linea (a lo old school pa sufrir y aprender tete)
+	while (std::getline(file, line)) {
+
+		//Por cada linea reviso el prefijo del archivo
+		ss.clear();
+		ss.str(line);
+		ss >> prefix;
+
+		//Filtro el prefijo
+
+		//Vertice
+		if (prefix == "v") {
+
+			//Vuelvo los valores
+			ss >> tmpVec3.x >> tmpVec3.y >> tmpVec3.z;
+
+			//Asumo que trabajo en 3D
+			tmpVertexs.push_back(tmpVec3.x);
+			tmpVertexs.push_back(tmpVec3.y);
+			tmpVertexs.push_back(tmpVec3.z);
+		}
+		//Estoy leyendo una UV
+		else if (prefix == "vt") {
+			//Vuelvo los valores
+			ss >> tmpVec2.x >> tmpVec2.y;
+
+			//Asumo que trabajo en 3D
+			tmpTextureCoordinates.push_back(tmpVec2.x);
+			tmpTextureCoordinates.push_back(tmpVec2.y);
+		}
+		//Estoy leyendo una normal
+		else if (prefix == "vn") {
+
+			//Vuelvo los valores
+			ss >> tmpVec3.x >> tmpVec3.y >> tmpVec3.z;
+
+			//Asumo que trabajo en 3D
+			tmpNormals.push_back(tmpVec3.x);
+			tmpNormals.push_back(tmpVec3.y);
+			tmpNormals.push_back(tmpVec3.z);
+		}
+		//Estoy leyendo una cara
+		else if (prefix == "f") {
+
+			int vertexData;
+			short counter = 0;
+
+			//Obtengo los valores hasta un espacio
+			while (ss >> vertexData) {
+
+				//En orden cada numero sigue el patron vertice/uv/normal = 3 valores
+				switch (counter)
+				{
+				case 0:
+					//Si es un vertice lo almaceno -1 por el offset y almaceno 3 valores seguidos
+					vertexs.push_back(tmpVertexs[(vertexData - 1) * 3]);
+					vertexs.push_back(tmpVertexs[((vertexData - 1) * 3) + 1]);
+					vertexs.push_back(tmpVertexs[((vertexData - 1) * 3) + 2]);
+					ss.ignore(1, '/');
+					counter++;
+					break;
+				case 1:
+					textureCoordinates.push_back(tmpTextureCoordinates[(vertexData - 1) * 2]);
+					textureCoordinates.push_back(tmpTextureCoordinates[((vertexData - 1) * 2) + 1]);
+					ss.ignore(1, '/');
+					counter++;
+					break;
+				case 2:
+					//Si es una normal lo almaceno -1 por el offset y almaceno 3 valores seguidos
+					vertexNormal.push_back(tmpNormals[(vertexData - 1) * 3]);
+					vertexNormal.push_back(tmpNormals[((vertexData - 1) * 3) + 1]);
+					vertexNormal.push_back(tmpNormals[((vertexData - 1) * 3) + 2]);
+					counter = 0;
+					break;
+				}
+			}
+
+		}
+	}
+	return Model(vertexs, textureCoordinates, vertexNormal);
+}
+
+
+
+
 //Funcion que genera una matriz de escalado representada por un vector
 glm::mat4 GenerateScaleMatrix(glm::vec3 scaleAxis) {
 
@@ -433,11 +550,6 @@ void main(){
 
 		//instanciar camera
 		Camera camera;
-
-
-
-
-		
 
 		//Compilar shaders
 		ShaderProgram myFirstProgram;
