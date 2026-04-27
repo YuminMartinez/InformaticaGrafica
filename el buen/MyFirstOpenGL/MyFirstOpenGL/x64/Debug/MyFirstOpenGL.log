@@ -1,6 +1,6 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (MyFirstOpenGL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Source.cpp
-C:\Users\YuminMartinezPerez\Downloads\Proyecto_Inicio_Sesion_06\Proyecto_Inicio_Sesion_06\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(41,90): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\YuminMartinezPerez\Downloads\Proyecto_Inicio_Sesion_06\Proyecto_Inicio_Sesion_06\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(41,71): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\YuminMartinezPerez\Downloads\Proyecto_Inicio_Sesion_06\Proyecto_Inicio_Sesion_06\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(392,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
-  MyFirstOpenGL.vcxproj -> C:\Users\YuminMartinezPerez\Downloads\Proyecto_Inicio_Sesion_06\Proyecto_Inicio_Sesion_06\MyFirstOpenGL\x64\Debug\MyFirstOpenGLYumin+.exe
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(41,90): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(41,71): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(396,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  MyFirstOpenGL.vcxproj -> C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\x64\Debug\MyFirstOpenGLYumin+.exe

@@ -144,6 +144,8 @@ Model LoadOBJModel(const std::string& filePath)
 				case 1:
 					textureCoordinates.push_back(tmpVertexs[(vertexData - 1) * 2]);
 					textureCoordinates.push_back(tmpVertexs[(vertexData - 1) * 2] + 1);
+					ss.ignore(1, '/');
+					counter++;
 					break;
 				case 2:
 
@@ -151,6 +153,8 @@ Model LoadOBJModel(const std::string& filePath)
 					vertexNormal.push_back(tmpVertexs[(vertexData - 1) * 3]);
 					vertexNormal.push_back(tmpVertexs[(vertexData - 1) * 3] + 1);
 					vertexNormal.push_back(tmpVertexs[(vertexData - 1) * 3] + 2);
+					
+					counter = 0;
 					break;
 				}
 			}
@@ -580,14 +584,30 @@ void main(){
 			//Limpiamos los buffers
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
+			models[0].Render();
+
+
+
+
+	
+
+			// vincular el vao para dibujarlossss, renderizar 
+
+
+
 			//Definimos que queremos usar el VAO con los puntos
 			glBindVertexArray(vaoPuntos);
 
 			//Definimos que queremos dibujar
-			glDrawArrays(GL_TRIANGLE_STRIP, 0, 14);
+			//glDrawArrays(GL_TRIANGLE_STRIP, 0, 14);
 			
 			//Dejamos de usar el VAO indicado anteriormente
 			glBindVertexArray(0);
+
+
+
+
+
 
 			//Cambiamos buffers
 			glFlush();
