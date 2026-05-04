@@ -12,9 +12,13 @@ Model::Model(const std::vector<float>& vertexs, const std::vector<float>& uvs, c
 	glGenVertexArrays(1, &this->VAO);
 
 	glGenBuffers(1, &this->VBO);
+	glGenBuffers(1, &this->uvVBO);
 
 	//definimos el VAO como activo
 	glBindVertexArray(this->VAO);
+
+
+
 
 	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
 	glBufferData(GL_ARRAY_BUFFER, vertexs.size() * sizeof(float), vertexs.data(), GL_STATIC_DRAW);
@@ -24,8 +28,17 @@ Model::Model(const std::vector<float>& vertexs, const std::vector<float>& uvs, c
 		// el primero es la layerrr, del vertexshader
 
 
+	// los uv 
+	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
+	glBufferData(GL_ARRAY_BUFFER, vertexs.size() * sizeof(float), vertexs.data(), GL_STATIC_DRAW);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), (void*)0);
+							//el numero de variables (el 2)
+
+
+
 	//Activamos el atributo 0
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
 
 
 	//Desvinculo VAO Y VBO

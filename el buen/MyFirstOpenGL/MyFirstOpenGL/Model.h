@@ -14,7 +14,8 @@ public:
 	void  Render() const;
 
 private:
-	GLuint VAO, VBO;
+	GLuint VAO, VBO, uvVBO;
+
 	
 	unsigned int numVertexs;
 };

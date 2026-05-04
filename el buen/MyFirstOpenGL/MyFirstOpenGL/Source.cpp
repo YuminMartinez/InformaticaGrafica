@@ -11,6 +11,7 @@
 #include "Model.h"
 #include "GameObject.h"
 #include "Camera.h"
+#include <stb_image.h>
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
 
@@ -542,6 +543,9 @@ void main(){
 	//Indicamos lado del culling
 	glCullFace(GL_BACK);	
 
+
+	int width, height, nrChannels;
+	unsigned char* textureInfo = stbi_load("Assets/Textures/Cube_Textures.png", &width, &height, &nrChannels, 0);// forzador de canales el 0
 	//Inicializamos GLEW y controlamos errores
 	if (glewInit() == GLEW_OK) {
 
@@ -562,6 +566,32 @@ void main(){
 
 		//Compilar programa
 		compiledPrograms.push_back(CreateProgram(myFirstProgram));
+
+		//CANAL DE TEXTURAS ACTIVO
+		glActiveTexture(GL_TEXTURE0);
+
+		//GENERAR TEXTURA
+		GLuint textureID;
+		glGenTextures(1, &textureID);
+
+		//Vinculamos texture
+		glBindTexture(GL_TEXTURE_2D, textureID);
+
+		//coinfigurar texturaas 
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+
+		//CARGAR 
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE,textureInfo);
+
+
+		//generate mipmap 
+		glGenerateMipmap(GL_TEXTURE_2D);
+
+		//liberar textura 
+		stbi_image_free(textureInfo);
 
 		//Definimos color para limpiar el buffer de color
 		glClearColor(0.f, 0.f, 0.f, 1.f);
@@ -621,6 +651,12 @@ void main(){
 
 		//Asignar valores iniciales al programa
 		glUniform2f(glGetUniformLocation(compiledPrograms[0], "windowSize"), WINDOW_WIDTH, WINDOW_HEIGHT);
+
+
+		//aginar valor de textura usaer
+
+		glUniform1i(glGetUniformLocation(compiledPrograms[0], "TextureSampler"), 0);
+																			//canal de textura q voy a usar
 
 		//Generamos el game loop
 		while (!glfwWindowShouldClose(window)) {

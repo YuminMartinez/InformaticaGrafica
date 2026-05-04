@@ -1,7 +1,10 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (MyFirstOpenGL.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Model.cpp
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Model.cpp(7,36): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
   Source.cpp
-C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(41,90): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(41,71): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(180,16): warning C4129: '_': unrecognized character escape sequence
-C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(513,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(42,90): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(42,71): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(181,16): warning C4129: '_': unrecognized character escape sequence
+C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(514,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Generating Code...
   MyFirstOpenGL.vcxproj -> C:\Users\YuminMartinezPerez\InformaticaGrafica\el buen\MyFirstOpenGL\x64\Debug\MyFirstOpenGLYumin+.exe

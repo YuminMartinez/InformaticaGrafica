@@ -1,3 +1,5 @@
 ﻿  Source.cpp
-C:\Users\YuminMartinezPerez\Documents\GitHub\InformaticaGrafica\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(20,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
-  MyFirstOpenGL.vcxproj -> C:\Users\YuminMartinezPerez\Documents\GitHub\InformaticaGrafica\MyFirstOpenGL\x64\Debug\MyFirstOpenGL.exe
+C:\Users\YuminMartinezPerez\InformaticaGrafica\MyFirstOpenGL\MyFirstOpenGL\Source.cpp(20,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  LINK : C:\Users\YuminMartinezPerez\InformaticaGrafica\MyFirstOpenGL\x64\Debug\MyFirstOpenGL.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  MyFirstOpenGL.vcxproj -> C:\Users\YuminMartinezPerez\InformaticaGrafica\MyFirstOpenGL\x64\Debug\MyFirstOpenGL.exe
